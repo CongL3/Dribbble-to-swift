@@ -1,0 +1,6 @@
+framework module Pods_App_Settings_15437594Tests {
+  umbrella header "Pods-App-Settings-15437594Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

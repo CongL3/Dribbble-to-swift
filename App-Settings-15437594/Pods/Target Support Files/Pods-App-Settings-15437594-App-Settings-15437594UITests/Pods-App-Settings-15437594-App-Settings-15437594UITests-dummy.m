@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_App_Settings_15437594_App_Settings_15437594UITests : NSObject
+@end
+@implementation PodsDummy_Pods_App_Settings_15437594_App_Settings_15437594UITests
+@end

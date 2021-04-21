@@ -1,0 +1,15 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'App-Settings-15437594' do
+  use_frameworks!
+  pod 'Reusable'
+
+  target 'App-Settings-15437594Tests' do
+    inherit! :search_paths
+  end
+
+  target 'App-Settings-15437594UITests' do
+  end
+
+end

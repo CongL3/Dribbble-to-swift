@@ -1,0 +1,6 @@
+framework module Pods_App_Settings_15437594 {
+  umbrella header "Pods-App-Settings-15437594-umbrella.h"
+
+  export *
+  module * { export * }
+}
