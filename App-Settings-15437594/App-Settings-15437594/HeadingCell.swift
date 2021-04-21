@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 import Reusable
 
-class HeadingCell: UITableViewCell, Reusable {
+class HeadingCell: UITableViewCell, NibReusable {
 	
 	@IBOutlet weak var headingLabel: UILabel!
+
 
 	func setViewModel(viewModel: SettingsCellVM) {
 		self.headingLabel.text = viewModel.title

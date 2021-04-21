@@ -17,9 +17,11 @@ enum CellType {
 }
 
 struct SettingsCellVM {
-	let iconName: String
+	var iconName: String = ""
 	let title: String
-	var subTitle: String
-	let arrowName: String
+	var subTitle: String = ""
+	var arrowName: String = ""
 	let cellType: CellType
+	var isSelectable: Bool = true
+	
 }

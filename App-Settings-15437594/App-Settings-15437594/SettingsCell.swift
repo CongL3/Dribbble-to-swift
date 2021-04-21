@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Reusable
 
-final class SettingsCell: UITableViewCell, Reusable {
+final class SettingsCell: UITableViewCell, NibReusable {
 	
 	@IBOutlet weak var arrowImageView: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!

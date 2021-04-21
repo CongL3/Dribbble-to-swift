@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Reusable
 
-class DarkModeCell: UITableViewCell, Reusable {
+class DarkModeCell: UITableViewCell, NibReusable {
 	@IBOutlet weak var `switch`: UISwitch!
 	
 	@IBOutlet weak var subtitleLabel: UILabel!

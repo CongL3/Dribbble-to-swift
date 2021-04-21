@@ -59,7 +59,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="arrowImageView" destination="LMU-ax-A5L" id="Q2i-OK-g6u"/>
-                <outlet property="iconImageView" destination="Pph-4O-qsy" id="6Ts-tc-4Mt"/>
                 <outlet property="logoImageView" destination="Pph-4O-qsy" id="Rzh-TF-kdv"/>
                 <outlet property="subtitleLabel" destination="Qoe-nj-dfO" id="EhB-J4-B4i"/>
                 <outlet property="titleLabel" destination="IUD-7L-PIp" id="rF1-Ma-tFj"/>

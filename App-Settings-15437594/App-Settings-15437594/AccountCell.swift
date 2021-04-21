@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Reusable
 
-class AccountCell: UITableViewCell, Reusable {
+class AccountCell: UITableViewCell, NibReusable {
 	
 	@IBOutlet weak var logoImageView: UIImageView!
 	

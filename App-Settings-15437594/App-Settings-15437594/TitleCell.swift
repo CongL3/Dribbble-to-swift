@@ -9,9 +9,13 @@ import Foundation
 import UIKit
 import Reusable
 
-class TitleCell: UITableViewCell, Reusable {
+class TitleCell: UITableViewCell, NibReusable {
 	
 	@IBOutlet weak var titleLabel: UILabel!
+	
+	override class func awakeFromNib() {
+		super.awakeFromNib()		
+	}
 
 	func setViewModel(viewModel: SettingsCellVM) {
 		self.titleLabel.text = viewModel.title

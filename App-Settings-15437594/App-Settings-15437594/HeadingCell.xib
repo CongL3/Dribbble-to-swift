@@ -29,7 +29,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="headingLabel" destination="3eO-G0-e2y" id="fGF-Nz-GWd"/>
+                <outlet property="headingLabel" destination="3eO-G0-e2y" id="EzZ-SD-gAi"/>
             </connections>
             <point key="canvasLocation" x="-84.057971014492765" y="15.736607142857142"/>
         </tableViewCell>
