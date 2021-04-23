@@ -40,6 +40,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		self.tableView.reloadData()
 		
 		print(items.count)
+		
+		self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+
 	}
 	
 	
