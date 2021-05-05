@@ -3,5 +3,5 @@
 
 Carousel
 
-<img src="./Gifs/carousel.png" width="200">
+<img src="./Gifs/carousel.gif" width="200">
 
