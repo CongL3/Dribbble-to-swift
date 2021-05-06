@@ -141,13 +141,52 @@ struct ContentView: View {
 				.frame(maxWidth: .infinity, alignment: .leading)
 
 			}
-			.padding()
-			.padding(.leading)
+			.padding(.leading, 30)
 
-			
-			Spacer(minLength: 0)
-			
-			
+			VStack {
+				
+				Capsule()
+					.fill(Color.gray)
+					.frame(width: 100, height: 2)
+				
+				
+				HStack(spacing: 15) {
+					
+					VStack(alignment: .leading, spacing: 10, content: {
+						
+						Text("Your Balance")
+							.font(.title)
+							.fontWeight(.bold)
+							.foregroundColor(.black)
+						
+						Text("May 1 2021")
+							.font(.caption)
+							.fontWeight(.bold)
+							.foregroundColor(.gray)
+					})
+					
+					Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
+					
+					Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+						
+						Image(systemName: "square.and.arrow.up.fill")
+							.font(.title2)
+							.foregroundColor(.black)
+					})
+				}
+				
+				HStack {
+					
+					
+				}
+			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+			.padding()
+			.background(
+				Color.white
+					.clipShape(CustomShape(corners: [.topLeft, .topRight], radius: 35))
+					.ignoresSafeArea(.all, edges: .bottom)
+			)
 		}
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("bg").ignoresSafeArea())

@@ -13,6 +13,7 @@
 		4C19DE292642B6BE00A592DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C19DE282642B6BE00A592DF /* Preview Assets.xcassets */; };
 		4C19DE342642B6BE00A592DF /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C19DE332642B6BE00A592DF /* WalletTests.swift */; };
 		4C19DE3F2642B6BE00A592DF /* WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C19DE3E2642B6BE00A592DF /* WalletUITests.swift */; };
+		4CEABABD2643E351007BAF63 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEABABC2643E351007BAF63 /* CustomShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		4C19DE3A2642B6BE00A592DF /* WalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C19DE3E2642B6BE00A592DF /* WalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletUITests.swift; sourceTree = "<group>"; };
 		4C19DE402642B6BE00A592DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CEABABC2643E351007BAF63 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				4C19DE212642B6BA00A592DF /* WalletApp.swift */,
 				4C19DE232642B6BA00A592DF /* ContentView.swift */,
+				4CEABABC2643E351007BAF63 /* CustomShape.swift */,
 				4C19DE252642B6BE00A592DF /* Assets.xcassets */,
 				4C19DE2A2642B6BE00A592DF /* Info.plist */,
 				4C19DE272642B6BE00A592DF /* Preview Content */,
@@ -261,6 +264,7 @@
 			files = (
 				4C19DE242642B6BA00A592DF /* ContentView.swift in Sources */,
 				4C19DE222642B6BA00A592DF /* WalletApp.swift in Sources */,
+				4CEABABD2643E351007BAF63 /* CustomShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
