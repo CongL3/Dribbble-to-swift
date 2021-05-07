@@ -17,6 +17,7 @@
 		4C4D9B0C2645C11E00EA7BAE /* SpotifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4D9B0B2645C11E00EA7BAE /* SpotifyUITests.swift */; };
 		4C7428732645D5B100EF9CE8 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7428722645D5B100EF9CE8 /* Song.swift */; };
 		4C7428752645DDF900EF9CE8 /* SideTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7428742645DDF900EF9CE8 /* SideTabView.swift */; };
+		4C7428772645E35700EF9CE8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7428762645E35700EF9CE8 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		4C4D9B0D2645C11E00EA7BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C7428722645D5B100EF9CE8 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		4C7428742645DDF900EF9CE8 /* SideTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabView.swift; sourceTree = "<group>"; };
+		4C7428762645E35700EF9CE8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				4C4D9AE92645C11D00EA7BAE /* AppDelegate.swift */,
 				4C4D9AEB2645C11D00EA7BAE /* SceneDelegate.swift */,
 				4C4D9AED2645C11D00EA7BAE /* ContentView.swift */,
+				4C7428762645E35700EF9CE8 /* Home.swift */,
 				4C7428742645DDF900EF9CE8 /* SideTabView.swift */,
 				4C4D9AEF2645C11E00EA7BAE /* Assets.xcassets */,
 				4C4D9AF42645C11E00EA7BAE /* LaunchScreen.storyboard */,
@@ -276,6 +279,7 @@
 				4C7428732645D5B100EF9CE8 /* Song.swift in Sources */,
 				4C4D9AEA2645C11D00EA7BAE /* AppDelegate.swift in Sources */,
 				4C4D9AEC2645C11D00EA7BAE /* SceneDelegate.swift in Sources */,
+				4C7428772645E35700EF9CE8 /* Home.swift in Sources */,
 				4C4D9AEE2645C11D00EA7BAE /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,12 +20,11 @@ var recentlyPlayed = [
 	Song(albumName: "Privacy", albumAuthor: "Cardi B", albumCover: "p1"),
 	Song(albumName: "Square Shap", albumAuthor: "Dino man", albumCover: "p2"),
 	Song(albumName: "Starboy", albumAuthor: "Star Man", albumCover: "p3"),
-	Song(albumName: "Pink", albumAuthor: "Black pink", albumCover: "p4")
+	Song(albumName: "Privacy", albumAuthor: "Cardi B", albumCover: "p5")
 ]
 
 var likedSongs = [
 	
-	Song(albumName: "Privacy", albumAuthor: "Cardi B", albumCover: "p5"),
 	Song(albumName: "Square Shap", albumAuthor: "Dino man", albumCover: "p6"),
 	Song(albumName: "Starboy", albumAuthor: "Star Man", albumCover: "p7"),
 	Song(albumName: "Pink", albumAuthor: "Black pink", albumCover: "p8"),
@@ -38,4 +37,4 @@ var likedSongs = [
 	Song(albumName: "Pink", albumAuthor: "Black pink", albumCover: "p15")
 ]
 
-var genre = ["Classic", "Hip-Hop", "Electronic", "Chilout", "Dark", "Clam", "Dance", "Ambient"]
+var genres = ["Classic", "Hip-Hop", "Electronic", "Chilout", "Dark", "Clam", "Dance", "Ambient"]

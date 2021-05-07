@@ -8,20 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-	    var body: some View {
-		HStack(spacing: 0) {
-			
-			let lightWhite = Color.white.opacity(0.7)
-			
-			SideTabView()
-			
-			// main content
-			ScrollView(showsIndicators: false, content: {
-				
-			})
-		}
-		.background(Color("bg").ignoresSafeArea())
 	
+	var body: some View {
+		Home()
+			.preferredColorScheme(.dark)
 	}
 }
 

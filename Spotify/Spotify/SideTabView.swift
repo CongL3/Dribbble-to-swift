@@ -98,6 +98,8 @@ struct SideTabView: View {
 		.offset(x: showSideBar ? 0 : -100)
 		
 		// reclaiming the spacing by using negative spacing
+		// commit
+		// if we wanna move the whole view with the side bar
 		.padding(.trailing, showSideBar ? CGFloat(0) : CGFloat(-100))
 		.zIndex(1)
     }
