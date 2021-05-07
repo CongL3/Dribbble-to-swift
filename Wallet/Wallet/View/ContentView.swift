@@ -13,7 +13,11 @@ struct ContentView: View {
 	
 	// For segment Tab Slide...
 	@Namespace var animation
-	
+	@State var weeks : [Week] = []
+
+	// current week day
+	@State var currentDay : Week = Week(day: "", date: "", amountSpent: 0)
+
     var body: some View {
 	
 		VStack {
@@ -104,8 +108,10 @@ struct ContentView: View {
 					
 					Circle().stroke(Color.white.opacity(0.2), lineWidth: 22)
 
+					let progress = currentDay.amountSpent / 500
+					
 					Circle()
-						.trim(from: 0, to: 0.6)
+						.trim(from: 0, to: progress)
 					.stroke(Color.yellow, style: StrokeStyle.init(lineWidth: 22, lineCap: .round, lineJoin: .round))
 						.rotationEffect(.init(degrees: -90))
 					
@@ -122,7 +128,9 @@ struct ContentView: View {
 						.fontWeight(.bold)
 						.foregroundColor(.white.opacity(0.6))
 
-					Text("$190")
+					let amount = String(format: "%.2f", currentDay.amountSpent)
+					
+					Text("$\(amount)")
 						.font(.title)
 						.fontWeight(.bold)
 						.foregroundColor(.white)
@@ -143,45 +151,24 @@ struct ContentView: View {
 			}
 			.padding(.leading, 30)
 
-			VStack {
+			ZStack {
 				
-				Capsule()
-					.fill(Color.gray)
-					.frame(width: 100, height: 2)
-				
-				
-				HStack(spacing: 15) {
-					
-					VStack(alignment: .leading, spacing: 10, content: {
-						
-						Text("Your Balance")
-							.font(.title)
-							.fontWeight(.bold)
-							.foregroundColor(.black)
-						
-						Text("May 1 2021")
-							.font(.caption)
-							.fontWeight(.bold)
-							.foregroundColor(.gray)
+				if UIScreen.main.bounds.height < 750 {
+					ScrollView(.vertical, showsIndicators: false, content: {
+						BottomSheet(weeks: $weeks, currentDay: $currentDay)
+							.padding([.horizontal, .top])
+							.padding(.bottom)
 					})
+				} else {
+					BottomSheet(weeks: $weeks, currentDay: $currentDay)
+						.padding([.horizontal, .top])
 					
-					Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
-					
-					Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-						
-						Image(systemName: "square.and.arrow.up.fill")
-							.font(.title2)
-							.foregroundColor(.black)
-					})
 				}
 				
-				HStack {
-					
-					
-				}
+				
 			}
 			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-			.padding()
+			.padding([.horizontal, .top])
 			.background(
 				Color.white
 					.clipShape(CustomShape(corners: [.topLeft, .topRight], radius: 35))
@@ -190,7 +177,46 @@ struct ContentView: View {
 		}
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("bg").ignoresSafeArea())
+		.onAppear(perform: {
+			getWeekDays()
+		})
+	}
+	
+	
+	func getWeekDays() {
 		
+		let calendar = Calendar.current
+		
+		let week = calendar.dateInterval(of: .weekOfMonth, for: Date())
+		
+		guard let startDate = week?.start else {
+			return
+		}
+		
+		for index in 0..<7 {
+			
+			guard let date = calendar.date(byAdding: .day, value: index, to: startDate) else {
+				return
+			}
+			
+			let formatter = DateFormatter()
+			formatter.dateFormat = "EEE"
+			var day = formatter.string(from: date)
+			
+			//
+			day.removeLast()
+			
+			formatter.dateFormat = "dd"
+			
+			let dateString = formatter.string(from: date)
+			
+			weeks.append(
+				Week(day: day,
+					 date: dateString,
+					 amountSpent: index == 0 ? 25: CGFloat(index) * 70))
+		}
+			
+		self.currentDay = weeks.first!
 	}
 }
 
@@ -198,4 +224,109 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+struct BottomSheet: View {
+	
+	@Binding var weeks: [Week]
+	@Binding var currentDay: Week
+	
+	var body: some View {
+		
+		VStack {
+			
+			Capsule()
+				.fill(Color.gray)
+				.frame(width: 100, height: 2)
+			
+			
+			HStack(spacing: 15) {
+				
+				VStack(alignment: .leading, spacing: 10, content: {
+					
+					Text("Your Balance")
+						.font(.title)
+						.fontWeight(.bold)
+						.foregroundColor(.black)
+					
+					Text("May 1 2021")
+						.font(.caption)
+						.fontWeight(.bold)
+						.foregroundColor(.gray)
+				})
+				
+				Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
+				
+				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+					
+					Image(systemName: "square.and.arrow.up.fill")
+						.font(.title2)
+						.foregroundColor(.black)
+				})
+				.offset(x: -10)
+			}
+			.padding(.top)
+			
+			HStack {
+				
+				Text("$22,306.00")
+					.fontWeight(.heavy)
+					.foregroundColor(.black)
+				Spacer(minLength: 0)
+				
+				Image(systemName: "arrow.up")
+					.foregroundColor(.gray)
+				
+				Text("14%")
+					.fontWeight(.semibold)
+			}
+			.padding(.top, 8)
+			
+			HStack(spacing: 0) {
+				
+				ForEach(weeks) { week in
+					
+					VStack(spacing: 12) {
+						
+						Text(week.day)
+							.fontWeight(.bold)
+							.foregroundColor(currentDay.id == week.id ? .white.opacity(0.8) : .black)
+						
+						Text(week.date)
+							.font(.title2)
+							.fontWeight(.bold)
+							.foregroundColor(currentDay.id == week.id ? .white : .black)
+					}
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+					.padding(.vertical)
+					.background(Color.yellow.opacity(currentDay.id == week.id ? 1 : 0))
+					.clipShape(Capsule())
+					.onTapGesture {
+						withAnimation {
+							currentDay = week
+						}
+					}
+					
+				}
+				
+			}
+			.padding(.top, 20)
+			
+			Button(action: {}, label: {
+				Image(systemName: "arrow.right")
+					.resizable()
+					.foregroundColor(.white)
+					.aspectRatio(contentMode: .fit)
+					.frame(width: 20, height: 20)
+					.padding(.vertical, 15)
+					.padding(.horizontal, 50)
+					.background(Color("bg"))
+					.clipShape(Capsule())
+			})
+			.padding(.top)
+		}
+
+		
+	}
+	
 }
