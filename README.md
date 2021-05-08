@@ -2,7 +2,7 @@
 
 #### Spotify
 
-<img src="./Gifs/spotify.gif" width="200"> >
+<img src="./Gifs/spotify.gif" width="200">
 
 
 #### Wallet
