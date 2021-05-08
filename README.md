@@ -2,7 +2,7 @@
 
 #### IMDB Viewer - MVVM, Xibs, Rest API request, Alamofire, youtube-ios-player-helper
 <img src="./Gifs/IMDBApp.gif" width="200">
-
+https://github.com/CongL3/IMDBViewer
 
 #### Spotify - SwiftUI
 <img src="./Gifs/spotify.gif" width="200">
