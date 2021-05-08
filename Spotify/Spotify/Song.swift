@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Song: Identifiable {
+struct Song: Identifiable, Hashable {
 	
 	var id = UUID().uuidString
 	var albumName : String

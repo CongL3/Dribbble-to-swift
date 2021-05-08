@@ -32,7 +32,7 @@ struct SideTabView: View {
 			.frame(height: getRect().height / 2.3)
 			.padding(.top, 10)
 			
-			Spacer(minLength: 50)
+			Spacer(minLength: getRect().height < 750 ? 30 : 50)
 			
 			Button(action: {
 				volume = volume + 0.1 < 1 ? volume + 0.1 : 1
@@ -59,7 +59,7 @@ struct SideTabView: View {
 					
 				}
 				.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-				.padding(.vertical, 10)
+				.padding(.vertical, getRect().height < 750 ? 10 : 20)
 				
 			}
 			
@@ -87,7 +87,7 @@ struct SideTabView: View {
 					.cornerRadius(10)
 					.shadow(radius: 5)
 			})
-			.padding(.top, 10)
+			.padding(.top, getRect().height < 750 ? 15 : 30)
 			.padding(.bottom, getSafeArea().bottom == 0 ? 15 : 0)
 			.offset(x: showSideBar ? 0 : 100)
 			
