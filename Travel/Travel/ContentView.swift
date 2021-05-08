@@ -26,7 +26,7 @@ struct MainView : View {
 	@State var selectedIndex = 0
 	@State var shouldShowModel = false
 	
-	var body: some View{
+	var body: some View {
 		
 		VStack (spacing: 0){
 			ZStack {
@@ -51,7 +51,8 @@ struct MainView : View {
 			
 			Divider()
 				.padding(.bottom, 8)
-			
+				.background(Color.white)
+
 			HStack {
 				ForEach(0..<5) { num in
 					Spacer()
@@ -82,7 +83,12 @@ struct MainView : View {
 					Spacer()
 				}
 			}
+			.background(Color.white)
+			.ignoresSafeArea()
+
 		}
+		.background(Color("bg"))
+		.ignoresSafeArea()
 		
 		//		VStack(spacing: 0) {
 		//
@@ -110,11 +116,89 @@ struct MainView : View {
 struct Home: View {
 	
 	var body: some View {
-		VStack {
-			Spacer()
-			Text("Home")
-			Spacer()
+		
+		ScrollView(.vertical, showsIndicators: false) {
+			VStack {
+				HStack {
+					Text("Discover a\nDifferent worlds")
+						.font(.system(size: 30, weight: .bold))
+						.foregroundColor(Color("text"))
+					Spacer(minLength: 0)
+					Button(action: {}, label: {
+						
+						Image(systemName: "magnifyingglass")
+							.renderingMode(.template)
+							.foregroundColor(.white)
+							.padding()
+							.background(Color("theme"))
+							.clipShape(Circle())
+					})
+				}
+				.padding()
+				.padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+				
+				ScrollView(.horizontal, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
+					HStack(spacing: 10) {
+						ForEach(1...5, id: \.self){i in
+							Image("r\(i)")
+								.frame(width: 100, height: 100)
+								.clipShape(Circle())
+								.onTapGesture {
+								}
+						}
+					}
+					.padding(.leading, 10)
+				})
+				
+				// Desinations
+				HStack {
+					Text("Destinations")
+						.font(.title)
+						.fontWeight(.bold)
+						.foregroundColor(Color("text"))
+					
+					Spacer()
+					
+					Button(action: {}, label: {
+						Text("See all")
+							.foregroundColor(.gray)
+					})
+				}
+				.padding()
+				
+				ForEach(data){travel in
+						
+					ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
+						
+						Image("\(travel.img)")
+							.resizable()
+							.aspectRatio(contentMode: .fill)
+							.frame(width: UIScreen.main.bounds.width - 40, height:300)
+							.cornerRadius(25)
+						
+						VStack(alignment: .trailing, spacing: 4) {
+							
+							Text(travel.title)
+								.font(.title)
+								.fontWeight(.bold)
+								.foregroundColor(Color("text"))
+
+							Text(travel.country)
+								.fontWeight(.bold)
+								.foregroundColor(Color("text"))
+
+						}
+						.padding(.trailing, 20)
+						.padding(.top, 10)
+						
+					}
+					.padding()
+					
+				}
+			}
+
 		}
+
 	}
 }
 
@@ -176,3 +260,18 @@ struct TabButton: View {
 		//		.clipShape(Capsule())
 	}
 }
+
+struct Model : Identifiable {
+	
+	var id = UUID().uuidString
+	var title: String
+	var country: String
+	var ratings: String
+	var price: String
+	var img: String
+}
+
+var data = [
+	Model(title: "Carribean", country: "Jamica", ratings: "4.5", price: "$200", img: "p1"),
+	Model(title: "Da Nang", country: "Vietnam", ratings: "4.5", price: "$200", img: "p2")
+]
