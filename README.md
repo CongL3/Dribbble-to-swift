@@ -13,3 +13,8 @@
 
 <img src="./Gifs/carousel.gif" width="200">
 
+
+#### Instagram 
+<img src="./Gifs/instagram1.gif" width="200">
+https://github.com/CongL3/InstagramClone
+
