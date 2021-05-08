@@ -1,6 +1,6 @@
 # Swift-ui-wooo
 
-#### IMDB Viewer - MVVM, Xibs, Rest API request, Alamofire, youtube-ios-player-helper
+#### IMDB Viewer - MVVM, Xibs, CollectionView, Rest API requests (Alamofire), youtube-ios-player-helper
 <img src="./Gifs/IMDBApp.gif" width="200">
 https://github.com/CongL3/IMDBViewer
 
