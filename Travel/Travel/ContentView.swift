@@ -119,71 +119,70 @@ struct Detail: View {
 						.frame(width: UIScreen.main.bounds.width, height: 350)
 						.clipShape(RoundedShape(corners: [.bottomRight, .bottomLeft]))
 						.matchedGeometryEffect(id: selected.img, in: animation)
-//					HStack {
-//						Button(action: {
-//							withAnimation(.spring()){show.toggle()}
-//						}, label: {
-//							Image(systemName: "chevron.left")
-//								.font(.title)
-//								.foregroundColor(.black)
-//								.padding()
-//								.background(Color.white)
-//								.clipShape(Circle())
-//						})
-//
-//						Spacer()
-//
-//						Button(action: {}, label: {
-//							Image(systemName: "suit.heart")
-//								.font(.title)
-//								.foregroundColor(.black)
-//								.padding()
-//								.background(Color.white)
-//								.clipShape(Circle())
-//						})
-//					}
-//					.padding()
-//					.padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+					HStack {
+						Button(action: {
+							withAnimation(.spring()){show.toggle()}
+						}, label: {
+							Image(systemName: "chevron.left")
+								.font(.title)
+								.foregroundColor(.black)
+								.padding()
+								.background(Color.white)
+								.clipShape(Circle())
+						})
+
+						Spacer()
+
+						Button(action: {}, label: {
+							Image(systemName: "suit.heart")
+								.font(.title)
+								.foregroundColor(.black)
+								.padding()
+								.background(Color.white)
+								.clipShape(Circle())
+						})
+					}
+					.padding()
+					.padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
 				}
 				
 				//Details view
-//				HStack {
-//					VStack {
-//						Text(selected.title)
-//							.font(.title)
-//							.foregroundColor(Color("text"))
-//							.fontWeight(.bold)
-//
-//						HStack (spacing: 10) {
-//							Image("map")
-//							Text(selected.country)
-//								.foregroundColor(Color.black)
-//							HStack(spacing: 5) {
-//								Text(selected.ratings)
-//									.foregroundColor(.black)
-//								Image(systemName: "star.fill")
-//									.foregroundColor(.yellow)
-//
-//							}
-//						}
-//					}
-//
-//					Spacer(minLength: 0)
-//
-//					Text(selected.ratings)
-//						.font(.title)
-//						.fontWeight(.bold)
-//						.foregroundColor(Color("text"))
-//				}
-//				.padding()
-//				.padding(.bottom)
-				
+				HStack {
+					VStack {
+						Text(selected.title)
+							.font(.title)
+							.foregroundColor(Color("text"))
+							.fontWeight(.bold)
+
+						HStack (spacing: 10) {
+							Image("map")
+							Text(selected.country)
+								.foregroundColor(Color.black)
+							HStack(spacing: 5) {
+								Text(selected.ratings)
+									.foregroundColor(.black)
+								Image(systemName: "star.fill")
+									.foregroundColor(.yellow)
+
+							}
+						}
+					}
+
+					Spacer(minLength: 0)
+
+					Text(selected.ratings)
+						.font(.title)
+						.fontWeight(.bold)
+						.foregroundColor(Color("text"))
+				}
+				.padding()
+				.padding(.bottom)
+//				.background(Color.white)
+//				clipShape(RoundedShape(corners: [.bottomRight, .bottomLeft]))
+
 			}
-			.background(Color.white)
-			clipShape(RoundedShape(corners: [.bottomRight, .bottomLeft]))
 			
 			Spacer(minLength: 0)
-			
 		}
 		.background(Color("bg"))
 	}
