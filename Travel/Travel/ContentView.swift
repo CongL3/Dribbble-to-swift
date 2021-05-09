@@ -111,7 +111,9 @@ struct Detail: View {
 	var body: some View {
 	
 		VStack {
+			
 			VStack {
+				
 				ZStack {
 					Image(selected.img)
 						.resizable()
@@ -124,7 +126,6 @@ struct Detail: View {
 							withAnimation(.spring()){show.toggle()}
 						}, label: {
 							Image(systemName: "chevron.left")
-								.font(.title)
 								.foregroundColor(.black)
 								.padding()
 								.background(Color.white)
@@ -135,7 +136,6 @@ struct Detail: View {
 
 						Button(action: {}, label: {
 							Image(systemName: "suit.heart")
-								.font(.title)
 								.foregroundColor(.black)
 								.padding()
 								.background(Color.white)
@@ -153,11 +153,15 @@ struct Detail: View {
 							.font(.title)
 							.foregroundColor(Color("text"))
 							.fontWeight(.bold)
+							.matchedGeometryEffect(id: selected.title, in: animation)
 
 						HStack (spacing: 10) {
 							Image("map")
+							
 							Text(selected.country)
 								.foregroundColor(Color.black)
+								.matchedGeometryEffect(id: selected.country, in: animation)
+
 							HStack(spacing: 5) {
 								Text(selected.ratings)
 									.foregroundColor(.black)
@@ -177,14 +181,87 @@ struct Detail: View {
 				}
 				.padding()
 				.padding(.bottom)
-//				.background(Color.white)
-//				clipShape(RoundedShape(corners: [.bottomRight, .bottomLeft]))
 
+			}
+			.background(Color.white)
+			.clipShape(RoundedShape(corners: [.bottomRight, .bottomLeft]))
+
+			// scroll view fvor smaller screen
+			
+			if UIScreen.main.bounds.height < 750 {
+				ScrollView(.vertical, showsIndicators: false) {
+					BottomView()
+				}
+			} else {
+				BottomView()
 			}
 			
 			Spacer(minLength: 0)
 		}
 		.background(Color("bg"))
+	}
+}
+
+struct BottomView: View {
+
+	@State var index = 1
+	
+	var body: some View {
+	
+		VStack(alignment: .leading, spacing: 15) {
+			
+			Text("People")
+				.font(.title)
+				.fontWeight(.bold)
+				.foregroundColor(Color("text"))
+			
+			Text("Member of the group")
+				.font(.caption)
+			
+			HStack(spacing: 15) {
+				
+				ForEach(1...6, id: \.self){i in
+					Button(action: {index=i}, label: {
+						
+						Text("\(i)")
+							.fontWeight(.bold)
+							.foregroundColor(index == i ? .white: .gray)
+							.padding(.vertical, 10)
+							.padding(.horizontal)
+							.background(Color("theme").opacity(index == i ? 1 : 0.07))
+							.cornerRadius(4)
+					})
+				}
+				
+				Spacer(minLength: 0)
+			}
+			.padding(.top)
+			
+			Text("Description")
+				.font(.title)
+				.fontWeight(.bold)
+				.foregroundColor(Color("text"))
+				.padding(.top, 10)
+				
+			
+			Text("This is the carribean is it very niceeThis is the carribean is it very niceeThis is the carribean is it very nicee")
+				.multilineTextAlignment(.leading)
+				.background(Color.green)
+			
+			
+			Button(action: {}, label: {
+				Text("Book Now")
+					.fontWeight(.bold)
+					.foregroundColor(Color.white)
+					.frame(width: UIScreen.main.bounds.width - 40)
+					.padding(.vertical)
+					.background(Color("theme"))
+					.clipShape(Capsule())
+			})
+			.padding(.vertical)
+			.padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+		}
+		.padding()
 	}
 }
 
