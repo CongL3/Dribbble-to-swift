@@ -215,7 +215,7 @@ struct BottomView: View {
 				.fontWeight(.bold)
 				.foregroundColor(Color("text"))
 			
-			Text("Member of the group")
+			Text("Number of Members in the group")
 				.font(.caption)
 			
 			HStack(spacing: 15) {
@@ -228,7 +228,7 @@ struct BottomView: View {
 							.foregroundColor(index == i ? .white: .gray)
 							.padding(.vertical, 10)
 							.padding(.horizontal)
-							.background(Color("theme").opacity(index == i ? 1 : 0.07))
+							.background(Color.black.opacity(index == i ? 1 : 0.07))
 							.cornerRadius(4)
 					})
 				}
@@ -244,9 +244,8 @@ struct BottomView: View {
 				.padding(.top, 10)
 				
 			
-			Text("This is the carribean is it very niceeThis is the carribean is it very niceeThis is the carribean is it very nicee")
+			Text("The Caribbean locally is a region of the Americas that comprises the Caribbean Sea, its surrounding coasts, and its islands.")
 				.multilineTextAlignment(.leading)
-				.background(Color.green)
 			
 			
 			Button(action: {}, label: {
@@ -255,7 +254,7 @@ struct BottomView: View {
 					.foregroundColor(Color.white)
 					.frame(width: UIScreen.main.bounds.width - 40)
 					.padding(.vertical)
-					.background(Color("theme"))
+					.background(Color.black)
 					.clipShape(Capsule())
 			})
 			.padding(.vertical)
@@ -276,7 +275,7 @@ struct Home: View {
 		ScrollView(.vertical, showsIndicators: false) {
 			VStack {
 				HStack {
-					Text("Discover a\nDifferent worlds")
+					Text("Discover\nDifferent worlds")
 						.font(.system(size: 30, weight: .bold))
 						.foregroundColor(Color("text"))
 					Spacer(minLength: 0)
@@ -286,14 +285,14 @@ struct Home: View {
 							.renderingMode(.template)
 							.foregroundColor(.white)
 							.padding()
-							.background(Color("theme"))
+							.background(Color.black)
 							.clipShape(Circle())
 					})
 				}
 				.padding()
 				.padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
 				
-				ScrollView(.horizontal, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
+				ScrollView(.horizontal, showsIndicators: false, content: {
 					HStack(spacing: 10) {
 						ForEach(1...5, id: \.self){i in
 							Image("r\(i)")
@@ -316,8 +315,8 @@ struct Home: View {
 					Spacer()
 					
 					Button(action: {}, label: {
-						Text("See all")
-							.foregroundColor(.gray)
+//						Text("See all")
+//							.foregroundColor(.gray)
 					})
 				}
 				.padding()
@@ -338,12 +337,12 @@ struct Home: View {
 							Text(travel.title)
 								.font(.title)
 								.fontWeight(.bold)
-								.foregroundColor(Color("text"))
+								.foregroundColor(Color.black)
 								.matchedGeometryEffect(id: travel.title, in: animation)
 
 							Text(travel.country)
 								.fontWeight(.bold)
-								.foregroundColor(Color("text"))
+								.foregroundColor(Color.black)
 								.matchedGeometryEffect(id: travel.country, in: animation)
 
 						}
