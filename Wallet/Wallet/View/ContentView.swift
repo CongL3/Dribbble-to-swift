@@ -24,34 +24,23 @@ struct ContentView: View {
 			
 			HStack {
 				Button.init(action: {}, label: {
-					Image("menu")
-						.resizable()
-						.renderingMode(.original)
-						.frame(width: 28, height: 28)
-//						.foregroundColor(.white)
+					Image(systemName: "line.horizontal.3")
+						.font(.title)
+						.foregroundColor(.black)
 				})
+				
 				
 				Spacer(minLength: 0)
 				
 				Button.init(action: {}, label: {
-					Image("grid")
-						.resizable()
-						.renderingMode(.original)
-						.frame(width: 28, height: 28)
-//						.foregroundColor(.white)
-
+							Image(systemName: "square.grid.3x3")
+							.font(.title)
+							.foregroundColor(.black)
 				})
 				
 			}
 			.padding()
-			
-			Text("Statistics")
-				.font(.title)
-				.fontWeight(.bold)
-				.foregroundColor(.white)
-				.frame(maxWidth: .infinity, alignment: .leading)
-				.padding(.leading)
-			
+						
 			
 			// Custom segmented picker
 			HStack {
@@ -106,18 +95,18 @@ struct ContentView: View {
 			HStack(spacing: 37) {
 				ZStack {
 					
-					Circle().stroke(Color.white.opacity(0.2), lineWidth: 22)
+					Circle().stroke(Color.white, lineWidth: 22)
 
-					let progress = currentDay.amountSpent / 500
+					let progress = currentDay.amountSpent / 977
 					
 					Circle()
 						.trim(from: 0, to: progress)
-					.stroke(Color.yellow, style: StrokeStyle.init(lineWidth: 22, lineCap: .round, lineJoin: .round))
+					.stroke(Color.black, style: StrokeStyle.init(lineWidth: 22, lineCap: .round, lineJoin: .round))
 						.rotationEffect(.init(degrees: -90))
 					
 					Image(systemName: "dollarsign.square.fill")
 						.font(.system(size: 55, weight: .bold))
-						.foregroundColor(.white)
+						.foregroundColor(.black)
 					
 				}
 				.frame(maxWidth: 180)
@@ -126,24 +115,24 @@ struct ContentView: View {
 
 					Text("Spent")
 						.fontWeight(.bold)
-						.foregroundColor(.white.opacity(0.6))
+						.foregroundColor(.gray)
 
 					let amount = String(format: "%.2f", currentDay.amountSpent)
 					
 					Text("$\(amount)")
 						.font(.title)
 						.fontWeight(.bold)
-						.foregroundColor(.white)
+						.foregroundColor(.black)
 
 					Text("Maximum")
 						.fontWeight(.bold)
-						.foregroundColor(.white.opacity(0.6))
+						.foregroundColor(.gray)
 						.padding(.top,10)
 
-					Text("$500")
+					Text("$977")
 						.font(.title)
 						.fontWeight(.bold)
-						.foregroundColor(.white)
+						.foregroundColor(.black)
 
 				})
 				.frame(maxWidth: .infinity, alignment: .leading)
@@ -213,7 +202,7 @@ struct ContentView: View {
 			weeks.append(
 				Week(day: day,
 					 date: dateString,
-					 amountSpent: index == 0 ? 25: CGFloat(index) * 70))
+					 amountSpent: index == 0 ? 25: CGFloat(index) * (9770/70)))
 		}
 			
 		self.currentDay = weeks.first!
