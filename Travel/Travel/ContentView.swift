@@ -259,7 +259,7 @@ struct BottomView: View {
 					.clipShape(Capsule())
 			})
 			.padding(.vertical)
-			.padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+//			.padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first?.safeAreaInsets.bottom)
 		}
 		.padding()
 	}
