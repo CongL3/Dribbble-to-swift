@@ -294,9 +294,10 @@ struct Home: View {
 				
 				ScrollView(.horizontal, showsIndicators: false, content: {
 					HStack(spacing: 10) {
-						ForEach(1...5, id: \.self){i in
+						ForEach(1...9, id: \.self){i in
 							Image("r\(i)")
 								.frame(width: 100, height: 100)
+								.aspectRatio(contentMode: .fit)
 								.clipShape(Circle())
 								.onTapGesture {
 								}
