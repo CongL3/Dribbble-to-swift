@@ -106,7 +106,7 @@ struct SideTabView: View {
 }
 
 struct SideTabView_Previews: PreviewProvider {
-    static var previews: som	e View {
+    static var previews: some View {
         ContentView()
     }
 }

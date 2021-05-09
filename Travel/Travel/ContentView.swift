@@ -25,95 +25,175 @@ struct MainView : View {
 	
 	@State var selectedIndex = 0
 	@State var shouldShowModel = false
-	
+	@Namespace var animation
+	@State var show = false
+	@State var selected : Model = data[0]
+
 	var body: some View {
 		
-		VStack (spacing: 0){
-			ZStack {
-				
-				
-				Liked(shouldShowModel: $shouldShowModel)
-				
-				switch selectedIndex {
-				case 0:
-					Home()
-				case 1:
-					Map()
-				case 3:
-					Account()
-				default:
-					NavigationView{
-						Text("default")
-						
+		ZStack {
+			VStack (spacing: 0){
+				ZStack {
+					
+					
+					Liked(shouldShowModel: $shouldShowModel)
+					
+					switch selectedIndex {
+					case 0:
+						Home(animation: animation, show: $show, selected: $selected)
+					case 1:
+						Map()
+					case 3:
+						Account()
+					default:
+						NavigationView{
+							Text("default")
+							
+						}
 					}
 				}
+				
+				Divider()
+					.padding(.bottom, 8)
+					.background(Color.white)
+				
+				HStack {
+					ForEach(0..<5) { num in
+						Spacer()
+						Button(action: {
+							if num == 2 {
+								shouldShowModel.toggle()
+								return
+							}
+							
+							selectedIndex = num
+						}, label: {
+							
+							if num == 2 {
+								Image(systemName: tabs[num].imageName)
+									.font(.system(size: 40, weight: .bold))
+									//								.padding(.top, 5)
+									.padding(.bottom, 10)
+									.foregroundColor(.red)
+							} else {
+								Image(systemName: tabs[num].imageName)
+									.font(.system(size: 24, weight: .bold))
+									//								.padding(.top, 5)
+									.padding(.bottom, 10)
+									.foregroundColor(selectedIndex == num ? .black : .black.opacity(0.2))
+							}
+						})
+						
+						Spacer()
+					}
+				}
+				.background(Color.white)
+				.ignoresSafeArea()
+				
 			}
 			
-			Divider()
-				.padding(.bottom, 8)
-				.background(Color.white)
+			if show {
+				Detail(selected: $selected, show: $show, animation: animation)
+			}
+		}
+		.ignoresSafeArea()
+		.background(Color("bg").edgesIgnoringSafeArea(.all))
+		
+	}
+}
 
-			HStack {
-				ForEach(0..<5) { num in
-					Spacer()
-					Button(action: {
-						if num == 2 {
-							shouldShowModel.toggle()
-							return
-						}
-						
-						selectedIndex = num
-					}, label: {
-						
-						if num == 2 {
-							Image(systemName: tabs[num].imageName)
-								.font(.system(size: 40, weight: .bold))
-								//								.padding(.top, 5)
-								.padding(.bottom, 10)
-								.foregroundColor(.red)
-						} else {
-							Image(systemName: tabs[num].imageName)
-								.font(.system(size: 24, weight: .bold))
-								//								.padding(.top, 5)
-								.padding(.bottom, 10)
-								.foregroundColor(selectedIndex == num ? .black : .black.opacity(0.2))
-						}
-					})
-					
-					Spacer()
+struct Detail: View {
+	
+	@Binding var selected : Model
+	@Binding var show : Bool
+	var animation : Namespace.ID
+
+	var body: some View {
+	
+		VStack {
+			VStack {
+				ZStack {
+					Image(selected.img)
+						.resizable()
+						.aspectRatio(contentMode: .fill)
+						.frame(width: UIScreen.main.bounds.width, height: 350)
+						.clipShape(RoundedShape(corners: [.bottomRight, .bottomLeft]))
+						.matchedGeometryEffect(id: selected.img, in: animation)
+//					HStack {
+//						Button(action: {
+//							withAnimation(.spring()){show.toggle()}
+//						}, label: {
+//							Image(systemName: "chevron.left")
+//								.font(.title)
+//								.foregroundColor(.black)
+//								.padding()
+//								.background(Color.white)
+//								.clipShape(Circle())
+//						})
+//
+//						Spacer()
+//
+//						Button(action: {}, label: {
+//							Image(systemName: "suit.heart")
+//								.font(.title)
+//								.foregroundColor(.black)
+//								.padding()
+//								.background(Color.white)
+//								.clipShape(Circle())
+//						})
+//					}
+//					.padding()
+//					.padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
 				}
+				
+				//Details view
+//				HStack {
+//					VStack {
+//						Text(selected.title)
+//							.font(.title)
+//							.foregroundColor(Color("text"))
+//							.fontWeight(.bold)
+//
+//						HStack (spacing: 10) {
+//							Image("map")
+//							Text(selected.country)
+//								.foregroundColor(Color.black)
+//							HStack(spacing: 5) {
+//								Text(selected.ratings)
+//									.foregroundColor(.black)
+//								Image(systemName: "star.fill")
+//									.foregroundColor(.yellow)
+//
+//							}
+//						}
+//					}
+//
+//					Spacer(minLength: 0)
+//
+//					Text(selected.ratings)
+//						.font(.title)
+//						.fontWeight(.bold)
+//						.foregroundColor(Color("text"))
+//				}
+//				.padding()
+//				.padding(.bottom)
+				
 			}
 			.background(Color.white)
-			.ignoresSafeArea()
-
+			clipShape(RoundedShape(corners: [.bottomRight, .bottomLeft]))
+			
+			Spacer(minLength: 0)
+			
 		}
 		.background(Color("bg"))
-		.ignoresSafeArea()
-		
-		//		VStack(spacing: 0) {
-		//
-		//			Spacer()
-		//
-		//			HStack(spacing: 0) {
-		//				TabButton(image: "magnifyingglass", selectedTab: $selectedTab)
-		//				Spacer(minLength: 0)
-		//				TabButton(image: "heart", selectedTab: $selectedTab)
-		//				Spacer(minLength: 0)
-		//				TabButton(image: "map", selectedTab: $selectedTab)
-		//				Spacer(minLength: 0)
-		//				TabButton(image: "person.crop.circle.fill", selectedTab: $selectedTab)
-		//			}
-		//			.frame(maxWidth: .infinity)
-		//			.padding(.vertical)
-		//			// logic for smaller iphones
-		//			//			.padding(.bottom, UIApplication.shared.windows.first!.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first!.safeAreaInsets.bottom)
-		//			.edgesIgnoringSafeArea(.all)
-		//
-		//		}
 	}
 }
 
 struct Home: View {
+	
+	var animation: Namespace.ID
+	@Binding var show: Bool
+	@Binding var selected: Model
 	
 	var body: some View {
 		
@@ -175,6 +255,7 @@ struct Home: View {
 							.aspectRatio(contentMode: .fill)
 							.frame(width: UIScreen.main.bounds.width - 40, height:300)
 							.cornerRadius(25)
+							.matchedGeometryEffect(id: travel.img, in: animation)
 						
 						VStack(alignment: .trailing, spacing: 4) {
 							
@@ -182,10 +263,12 @@ struct Home: View {
 								.font(.title)
 								.fontWeight(.bold)
 								.foregroundColor(Color("text"))
+								.matchedGeometryEffect(id: travel.title, in: animation)
 
 							Text(travel.country)
 								.fontWeight(.bold)
 								.foregroundColor(Color("text"))
+								.matchedGeometryEffect(id: travel.country, in: animation)
 
 						}
 						.padding(.trailing, 20)
@@ -193,6 +276,12 @@ struct Home: View {
 						
 					}
 					.padding()
+					.onTapGesture {
+						withAnimation(.spring()) {
+							selected = travel
+							show.toggle()
+						}
+					}
 					
 				}
 			}
@@ -275,3 +364,15 @@ var data = [
 	Model(title: "Carribean", country: "Jamica", ratings: "4.5", price: "$200", img: "p1"),
 	Model(title: "Da Nang", country: "Vietnam", ratings: "4.5", price: "$200", img: "p2")
 ]
+
+struct RoundedShape : Shape {
+	
+	var corners: UIRectCorner
+	
+	func path(in rect: CGRect) -> Path {
+		
+		let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: 45, height: 45))
+		
+		return Path(path.cgPath)
+	}
+}

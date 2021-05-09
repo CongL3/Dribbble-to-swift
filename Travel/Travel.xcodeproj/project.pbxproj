@@ -14,6 +14,7 @@
 		4C7ABB4F264684310068B093 /* TravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ABB4E264684310068B093 /* TravelTests.swift */; };
 		4C7ABB5A264684310068B093 /* TravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ABB59264684310068B093 /* TravelUITests.swift */; };
 		4C7ABB69264687CC0068B093 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ABB68264687CC0068B093 /* Tab.swift */; };
+		4CD48AE52647DD2300249FC6 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD48AE42647DD2300249FC6 /* CustomShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		4C7ABB59264684310068B093 /* TravelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelUITests.swift; sourceTree = "<group>"; };
 		4C7ABB5B264684310068B093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C7ABB68264687CC0068B093 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		4CD48AE42647DD2300249FC6 /* CustomShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomShape.swift; path = ../../Wallet/Wallet/View/CustomShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				4C7ABB67264687B50068B093 /* Model */,
 				4C7ABB3C2646842B0068B093 /* TravelApp.swift */,
 				4C7ABB3E2646842B0068B093 /* ContentView.swift */,
+				4CD48AE42647DD2300249FC6 /* CustomShape.swift */,
 				4C7ABB40264684300068B093 /* Assets.xcassets */,
 				4C7ABB45264684300068B093 /* Info.plist */,
 				4C7ABB42264684300068B093 /* Preview Content */,
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD48AE52647DD2300249FC6 /* CustomShape.swift in Sources */,
 				4C7ABB69264687CC0068B093 /* Tab.swift in Sources */,
 				4C7ABB3F2646842B0068B093 /* ContentView.swift in Sources */,
 				4C7ABB3D2646842B0068B093 /* TravelApp.swift in Sources */,
