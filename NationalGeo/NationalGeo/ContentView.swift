@@ -11,7 +11,7 @@ struct ContentView: View {
 	
 	init() {
 		// 1.
-		UINavigationBar.appearance().backgroundColor = UIColor.init(Color("bg"))
+		UINavigationBar.appearance().backgroundColor = UIColor.init(Color.black)
 		
 		//		// 2.
 		//		UINavigationBar.appearance().largeTitleTextAttributes = [
