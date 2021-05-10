@@ -25,11 +25,12 @@ struct Trip: Identifiable, Hashable {
 
 var trips = [
 
-	Trip.init(image: "baby", title: "My Baby"),
-	Trip.init(image: "brickwall", title: "Brickwall"),
-	Trip.init(image: "desert", title: "Desert"),
-	Trip.init(image: "pinkblur", title: "Pink blur"),
-	Trip.init(image: "watercolor", title: "Water color")
+	Trip.init(image: "desert", title: "Lets get"),
+	Trip.init(image: "desert2", title: "started"),
+	Trip.init(image: "baby", title: "with"),
+	Trip.init(image: "mountain", title: "the"),
+	Trip.init(image: "pinkblur", title: "Onboarding"),
+	Trip.init(image: "watercolor", title: "Process")
 
 ]
 

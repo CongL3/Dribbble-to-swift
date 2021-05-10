@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Home: View {
 	@State var selectedTab: Trip = trips[0]
-	
+
 	
 	init() {
 		UIScrollView.appearance().bounces = false
@@ -33,14 +33,14 @@ struct Home: View {
 			// Carousel
 			VStack {
 				
-				Text("Let's go with it")
+				Text("Lets get started with")
 					.fontWeight(.bold)
-					.foregroundColor(.white)
+					.foregroundColor(.black)
 				
-				Text("Pocotrip")
+				Text("Onboarding")
 					.font(.largeTitle)
 					.fontWeight(.heavy)
-					.foregroundColor(.white)
+					.foregroundColor(.black)
 					.padding(.bottom, 30)
 								
 				VStack {
@@ -52,7 +52,6 @@ struct Home: View {
 						TabView(selection: $selectedTab) {
 
 							ForEach(trips){trip in
-							
 								Image(trip.image)
 									.resizable()
 									.aspectRatio(contentMode: .fill)
@@ -70,6 +69,7 @@ struct Home: View {
 						.fontWeight(.bold)
 						.padding(.top, 20)
 						.padding(.bottom, 18)
+						.foregroundColor(.white)
 					
 					// page control
 					PageControl(maxPage: trips.count, currentPage: getIndex())
@@ -84,10 +84,10 @@ struct Home: View {
 				Button(action: {}, label: {
 					Text("GET STARTED")
 						.fontWeight(.bold)
- 						.foregroundColor(.white)
+ 						.foregroundColor(.black)
 						.padding(.vertical, 18)
 						.frame(maxWidth: .infinity)
-						.background(Color(.blue))
+						.background(Color(.yellow))
 						.cornerRadius(10)
 				})
 				.padding(.top, 30)
