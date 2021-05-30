@@ -1,4 +1,4 @@
-# Learning rojects
+# Learning Projects
 
 ## Swift + Nib
 
