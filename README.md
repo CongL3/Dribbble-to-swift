@@ -1,4 +1,4 @@
-# Learning rojects
+# Learning Projects
 
 ## Swift + Nib
 
@@ -12,7 +12,7 @@
 
 | News                                                         | Mock Wallet App                                             | **Instagram** Clone                                         |
 | ------------------------------------------------------------ | :---------------------------------------------------------- | ----------------------------------------------------------- |
-| MVVM, Combine, SwiftUI, Network layer, Error handling.       |                                                             |                                                             |
+| MVVM, Combine, SwiftUI, Network layer.<br />Grabs the latest news from an API and displays it in a list with image caching. Includes Error handling. |                                                             |                                                             |
 | <img src="/Gifs/news.gif" width="200">                       | <img src="./Gifs/wallet-big-screen1.gif" width="200">       | <img src="./Gifs/instagram1.gif" width="200">               |
 | https://github.com/CongL3/News                               | https://github.com/CongL3/Project-overview/tree/main/Wallet | https://github.com/CongL3/InstagramClone                    |
 |                                                              |                                                             |                                                             |
