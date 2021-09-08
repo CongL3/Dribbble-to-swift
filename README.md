@@ -19,7 +19,7 @@
 | Mock Spotify                                                 | **Mock Travel App**                                         | ***Mock NatGeo app***                                       |
 |                                                              |                                                             |                                                             |
 | <img src="./Gifs/spotify.gif" width="200">                   | <img src="/Gifs/travel.gif" width="200">                    | <img src="/Screenshots/NatGeo.png" width="200">             |
-| https://github.com/CongL3/Project-overview/tree/main/Spotify | https://github.com/CongL3/Project-overview/tree/main/Travel | https://github.com/CongL3/Project-overview/tree/main/NatGeo |
+| https://github.com/CongL3/Project-overview/tree/main/Spotify | https://github.com/CongL3/Project-overview/tree/main/Travel | https://github.com/CongL3/Project-overview/tree/main/NationalGeo |
 |                                                              |                                                             |                                                             |
 | **Onboarding Carousel**                                      |                                                             |                                                             |
 |                                                              |                                                             |                                                             |
